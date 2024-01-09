@@ -1,0 +1,9 @@
+{
+  "extends": ["eslint:recommended", "next"],
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "no-undef": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "semi": [2, "always"]
+  }
+}
