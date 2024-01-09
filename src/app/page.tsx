@@ -21,9 +21,7 @@ import {
 import bg from '%/images/bg.png';
 import arte from '%/images/arte.png';
 import Link from 'next/link';
-
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { createUser } from '@/app/actions';
 
 export default function Signin() {
   const [showPassword, setShowPassword] = useState(false);
@@ -50,17 +48,7 @@ export default function Signin() {
     },
   };
 
-  const router = useRouter();
-
-  useEffect(() => {
-    // Acceder a los datos del formulario POST
-    console.log('router:', router);
-    const { consultantId, country } = router.query;
-
-    // Hacer lo que necesitas con los datos
-    console.log('consultantId:', consultantId);
-    console.log('country:', country);
-  }, [router.query]);
+  const [stateForm] = useState(createUser);
 
   return (
     <Grid container columns={12} sx={{ display: 'flex', minHeight: '100%' }}>
@@ -88,7 +76,7 @@ export default function Signin() {
                   Buenas tardes
                 </Typography>
                 <Typography variant="h6" color="#7D4DBE" fontWeight={700}>
-                  Edgar Lazaro
+                  Edgar Lazaro {{ stateForm }}
                 </Typography>
               </Box>
               <Box sx={styleLabel}>
