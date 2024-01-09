@@ -21,7 +21,6 @@ import {
 import bg from '%/images/bg.png';
 import arte from '%/images/arte.png';
 import Link from 'next/link';
-import { createUser } from '@/app/actions';
 
 export default function Signin() {
   const [showPassword, setShowPassword] = useState(false);
@@ -48,7 +47,14 @@ export default function Signin() {
     },
   };
 
-  const [stateForm] = useState(createUser);
+  const createAccount = async (formData: FormData) => {
+    'use server';
+    const consultantId = formData.get('consultantId');
+    const country = formData.get('country');
+    console.log({ consultantId, country });
+  };
+
+  console.log({ createAccount });
 
   return (
     <Grid container columns={12} sx={{ display: 'flex', minHeight: '100%' }}>
