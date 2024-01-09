@@ -22,6 +22,9 @@ import bg from '%/images/bg.png';
 import arte from '%/images/arte.png';
 import Link from 'next/link';
 
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
 export default function Signin() {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -46,6 +49,18 @@ export default function Signin() {
       display: 'block',
     },
   };
+
+  const router = useRouter();
+
+  useEffect(() => {
+    // Acceder a los datos del formulario POST
+    console.log('router:', router);
+    const { consultantId, country } = router.query;
+
+    // Hacer lo que necesitas con los datos
+    console.log('consultantId:', consultantId);
+    console.log('country:', country);
+  }, [router.query]);
 
   return (
     <Grid container columns={12} sx={{ display: 'flex', minHeight: '100%' }}>
