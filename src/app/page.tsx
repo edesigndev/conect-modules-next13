@@ -22,7 +22,7 @@ import bg from '%/images/bg.png';
 import arte from '%/images/arte.png';
 import Link from 'next/link';
 
-import { create } from '@/app/actions';
+import { exampleAction } from '@/app/actions';
 
 export default function Signin() {
   const [showPassword, setShowPassword] = useState(false);
@@ -48,8 +48,6 @@ export default function Signin() {
       display: 'block',
     },
   };
-
-  console.log(create);
 
   return (
     <Grid container columns={12} sx={{ display: 'flex', minHeight: '100%' }}>
@@ -77,7 +75,7 @@ export default function Signin() {
                   Buenas tardes
                 </Typography>
                 <Typography variant="h6" color="#7D4DBE" fontWeight={700}>
-                  Edgar Lazaro {{ stateForm }}
+                  Edgar Lazaro
                 </Typography>
               </Box>
               <Box sx={styleLabel}>
@@ -107,7 +105,9 @@ export default function Signin() {
                 </Typography>
               </Link>
 
-              <Button variant="contained">Iniciar sesión</Button>
+              <Button variant="contained" onClick={() => exampleAction()}>
+                Iniciar sesión
+              </Button>
             </Stack>
           </Box>
         </Box>
