@@ -22,8 +22,9 @@ import bg from '%/images/bg.png';
 import arte from '%/images/arte.png';
 import Link from 'next/link';
 
-import { exampleAction } from '@/app/actions';
+import { getDataForm } from '@/app/actions';
 
+// eslint-disable-next-line @next/next/no-async-client-component
 export default function Signin() {
   const [showPassword, setShowPassword] = useState(false);
 
@@ -48,6 +49,10 @@ export default function Signin() {
       display: 'block',
     },
   };
+
+  const data = getDataForm();
+
+  console.log('data-page:', data);
 
   return (
     <Grid container columns={12} sx={{ display: 'flex', minHeight: '100%' }}>
@@ -105,9 +110,7 @@ export default function Signin() {
                 </Typography>
               </Link>
 
-              <Button variant="contained" onClick={() => exampleAction()}>
-                Iniciar sesión
-              </Button>
+              <Button variant="contained">Iniciar sesión</Button>
             </Stack>
           </Box>
         </Box>
