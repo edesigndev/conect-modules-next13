@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(req: NextRequest) {
-  console.log('route POST:', req);
+export async function POST(request: NextRequest) {
+  if (request.method === 'POST') {
+    const data = request.body;
 
-  const res = await req.json();
+    console.log('Data:', data);
 
-  return new NextResponse(JSON.stringify(res), {
-    status: 200,
-  });
+    return NextResponse.json(data);
+  }
 }
