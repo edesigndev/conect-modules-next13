@@ -21,7 +21,7 @@ import Link from 'next/link';
 
 // import { getDataForm } from '@/app/actions';
 async function getData() {
-  const res = await fetch('/api/formdata')
+  const res = await fetch('https://conect-modules-next13.vercel.app/api/formdata')
     .then((response) => response.json())
     .then((data) => console.log(data))
     .catch((error) => console.error('Error:', error));
