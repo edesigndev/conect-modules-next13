@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
-import Visibility from '@mui/icons-material/RemoveRedEye';
+
 // import axios from 'axios';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import {
@@ -24,10 +23,6 @@ import { getDataForm } from '@/app/actions';
 
 // eslint-disable-next-line @next/next/no-async-client-component
 export default function Signin() {
-  const [showPassword, setShowPassword] = useState(false);
-
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const styleLabel = {
     position: 'relative',
     display: 'flex',
@@ -90,11 +85,11 @@ export default function Signin() {
                 <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                 <OutlinedInput
                   id="outlined-adornment-password"
-                  type={showPassword ? 'text' : 'password'}
+                  type={'text'}
                   endAdornment={
                     <InputAdornment position="end">
-                      <IconButton aria-label="toggle password visibility" onClick={handleClickShowPassword} edge="end">
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      <IconButton aria-label="toggle password visibility" edge="end">
+                        {<VisibilityOff />}
                       </IconButton>
                     </InputAdornment>
                   }
