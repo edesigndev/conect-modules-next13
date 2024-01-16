@@ -19,10 +19,18 @@ import bg from '%/images/bg.png';
 import arte from '%/images/arte.png';
 import Link from 'next/link';
 
-import { getDataForm } from '@/app/actions';
+// import { getDataForm } from '@/app/actions';
+async function getData() {
+  const res = await fetch('https://conect-modules-next13.vercel.app/api/formData')
+    .then((response) => response.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error('Error:', error));
+
+  return res;
+}
 
 // eslint-disable-next-line @next/next/no-async-client-component
-export default function Signin() {
+export default async function Signin() {
   const styleLabel = {
     position: 'relative',
     display: 'flex',
@@ -43,7 +51,7 @@ export default function Signin() {
     },
   };
 
-  const data = getDataForm();
+  const data = await getData();
 
   console.log('data-page:', data);
 
